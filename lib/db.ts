@@ -23,6 +23,10 @@ export function updateWidget(id: string, text: string) {
 }
 
 export function deleteWidget(id: string) {
+  const widget = widgets.find((widget) => widget.id === id);
+  if (!widget) {
+    throw new Error('widget not found');
+  }
   widgets = widgets.filter((widget) => widget.id !== id);
 }
 

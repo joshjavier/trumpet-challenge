@@ -36,4 +36,8 @@ describe('db.ts', () => {
     deleteWidget(widget.id);
     expect(getWidgets()).toHaveLength(0);
   });
+
+  it('should throw when deleting non-existent widget', () => {
+    expect(() => deleteWidget('fake')).toThrow();
+  });
 });
