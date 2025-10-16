@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <main className="flex flex-1 flex-col items-center space-y-8 pb-20">
       <h1 className="mt-14 text-4xl font-bold tracking-tight text-neutral-700">
-        Text Widget
+        Text Widgets
       </h1>
 
       <AddWidgetButton onAdd={handleAdd} />
