@@ -2,6 +2,8 @@
 
 A simple app where users can add, edit, and persist multiple text widgets. Built with Next.js.
 
+![](./screenshot.png)
+
 ## Tech Stack
 
 - Next.js 15 (App Router)
