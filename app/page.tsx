@@ -46,14 +46,14 @@ export default function Home() {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <main className="flex flex-1 flex-col items-center pb-20">
-      <h1 className="mt-14 mb-8 text-4xl font-bold tracking-tight text-neutral-700">
+    <main className="flex flex-1 flex-col items-center space-y-8 pb-20">
+      <h1 className="mt-14 text-4xl font-bold tracking-tight text-neutral-700">
         Text Widget
       </h1>
 
       <AddWidgetButton onAdd={handleAdd} />
 
-      <div className="space-y-2">
+      <div className="w-full max-w-[500px] space-y-2 px-4">
         {widgets.map((widget) => (
           <Widget
             key={widget.id}
