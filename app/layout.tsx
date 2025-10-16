@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import GithubMark from '@/components/GithubMark';
+import { Button } from '@/components/ui/button';
 
 import './globals.css';
 
@@ -26,8 +28,25 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} flex min-h-svh flex-col antialiased`}
       >
+        <header className="flex min-h-16 items-center justify-end px-6">
+          <Button
+            variant="ghost"
+            size="icon-lg"
+            aria-label="GitHub repo"
+            className="cursor-pointer rounded-full"
+            asChild
+          >
+            <a
+              href="https://github.com/joshjavier/trumpet-challenge"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <GithubMark size={24} aria-hidden="true" />
+            </a>
+          </Button>
+        </header>
         {children}
       </body>
     </html>
