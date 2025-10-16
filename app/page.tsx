@@ -46,8 +46,13 @@ export default function Home() {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <main>
+    <main className="flex flex-1 flex-col items-center pb-20">
+      <h1 className="mt-14 mb-8 text-4xl font-bold tracking-tight text-neutral-700">
+        Text Widget
+      </h1>
+
       <AddWidgetButton onAdd={handleAdd} />
+
       <div className="space-y-2">
         {widgets.map((widget) => (
           <Widget
