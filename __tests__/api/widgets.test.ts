@@ -22,7 +22,7 @@ describe('/api/widgets route', () => {
       const data = await response.json();
 
       expect(response.status).toBe(200);
-      expect(data).toEqual(widgets);
+      expect(data).toEqual({ widgets });
       expect(getWidgets).toHaveBeenCalledTimes(1);
     });
   });

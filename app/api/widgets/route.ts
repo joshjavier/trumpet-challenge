@@ -3,7 +3,7 @@ import { addWidget, getWidgets } from '@/lib/db';
 
 export async function GET() {
   const widgets = getWidgets();
-  return NextResponse.json(widgets);
+  return NextResponse.json({ widgets });
 }
 
 export async function POST() {
