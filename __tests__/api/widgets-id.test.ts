@@ -63,6 +63,22 @@ describe('/api/widgets/[id] route', () => {
       expect(res.status).toBe(404);
       expect(data.error).toMatch(/not found/);
     });
+
+    it('returns 500 for unexpected internal errors', async () => {
+      (updateWidget as jest.Mock).mockImplementation(() => {
+        throw new Error('database connection failed');
+      });
+
+      const req = new Request('http://localhost', {
+        method: 'PUT',
+        body: JSON.stringify({ text: 'Hello' }),
+      }) as NextRequest;
+      const res = await PUT(req, { params });
+      const data = await res.json();
+
+      expect(res.status).toBe(500);
+      expect(data.error).toMatch(/internal/i);
+    });
   });
 
   describe('DELETE (idempotent)', () => {

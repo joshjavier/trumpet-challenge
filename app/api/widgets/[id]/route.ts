@@ -19,7 +19,13 @@ export async function PUT(
     const updated = updateWidget(id, text);
     return NextResponse.json(updated);
   } catch (err) {
-    return NextResponse.json({ error: 'Widget not found' }, { status: 404 });
+    if ((err as Error).message.includes('not found')) {
+      return NextResponse.json({ error: 'Widget not found' }, { status: 404 });
+    }
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 },
+    );
   }
 }
 
